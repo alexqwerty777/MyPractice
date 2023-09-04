@@ -13,7 +13,7 @@ class Card:
 
     def get_value(self):
         if self.fvalue.isdigit():
-            return(int(self.fvalue))
+            return int(self.fvalue)
         elif self.fvalue == 'A':
             return 11
         else:

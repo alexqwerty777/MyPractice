@@ -15,12 +15,12 @@ class Card:
         if self.fvalue.isdigit():
             return(int(self.fvalue))
         elif self.fvalue == 'A':
-            return(11)
+            return 11
         else:
-            return(10)
+            return 10
 
     def __repr__(self):
-        return('%s (%s)' % (self.fvalue, self.suit))
+        return '%s (%s)' % (self.fvalue, self.suit)
 
 
 class Deck:
@@ -34,10 +34,10 @@ class Deck:
         random.shuffle(self.cards)
 
     def give_card(self):
-        return(self.cards.pop() if self.cards else None)
+        return self.cards.pop() if self.cards else None
 
     def __repr__(self):
-        return(str(self.cards))
+        return str(self.cards)
 
 
 class Player:
@@ -46,7 +46,7 @@ class Player:
         self.cards = []
 
     def __repr__(self):
-        return('Name: %s, CardNumber: %d \nCards:%s'    % (self.name, len(self.cards), str(self.cards)))
+        return 'Name: %s, CardNumber: %d \nCards:%s'    % (self.name, len(self.cards), str(self.cards))
 
     def take_card(self,card):
         self.cards.append(card)
@@ -56,7 +56,7 @@ class Player:
 
     def count_of_a(self):
         #numbers of 'A' in hand. Could be 11 or 1 points
-        return([card.fvalue for card in self.cards].count('A'))
+        return [card.fvalue for card in self.cards].count('A')
 
     def count_value(self):
         summ = sum([card.get_value() for card in self.cards])
@@ -65,7 +65,7 @@ class Player:
         while summ > 21 and A_num:
             summ -= 10
             A_num -= 1
-        return(summ)
+        return summ
 
 
 class Game:
